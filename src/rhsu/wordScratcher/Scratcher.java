@@ -11,8 +11,8 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
  */
 public class Scratcher
 {
-	protected ScratcherBoard crossword;
-	protected LinkedList<String> wordList;
+	private ScratcherBoard crossword;
+	private LinkedList<String> wordList;
 	
 	public ScratcherBoard getCrossword()
 	{

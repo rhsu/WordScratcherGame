@@ -1,5 +1,7 @@
 package rhsu.wordScratcher;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author rhsu
@@ -15,13 +17,13 @@ public class MainGame
 	{
 		Scratcher game = new Scratcher("Crossword1.txt", "Crossword1WordList.txt");
 		
-		RandomLetters letters = new RandomLetters();
+		LinkedList<Character> test = game.getCrossword().findAll('c');
 		
-		System.out.println(letters.getTest());
+		System.out.println(test.size());
 	}
 	
 	public static void main(String[] args)
 	{
-		test();
+		test2();
 	}
 }
