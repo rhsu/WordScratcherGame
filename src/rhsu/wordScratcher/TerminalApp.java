@@ -1,6 +1,8 @@
 package rhsu.wordScratcher;
 
+import java.util.LinkedList;
 import java.util.Scanner;
+import rhsu.board.BoardPiece;
 
 /**
  *
@@ -48,7 +50,7 @@ public class TerminalApp
 		}
 	}
 	
-	public void uncoverLetterPrompt()
+	private void uncoverLetterPrompt()
 	{
 		print("Press enter to uncover a letter");
 		
@@ -58,8 +60,33 @@ public class TerminalApp
 		printBreaks();
 		
 		print(scratcher.getWordBank());
+
+		markCrosswordPuzzle();
+	}
+	
+	private void markCrosswordPuzzle()
+	{
 		print("Marking... the crossword puzzle");
 		printBreaks();
 		
+		char recent = scratcher.getWordBank().getRecent();
+		
+		LinkedList<BoardPiece<Character>> results = scratcher.getCrossword().findAll(recent);
+		
+		if(results.isEmpty())
+		{
+			print("No match.");
+		}
+		else
+		{
+			for(BoardPiece<Character> item : results)
+			{
+				int i = item.getHorizontal();
+				int j = item.getVertical();
+				scratcher.getCrossword().setValueAt(i, j, Character.toUpperCase(recent));
+			}
+		}
+		
+		print(scratcher.getCrossword());
 	}
 }

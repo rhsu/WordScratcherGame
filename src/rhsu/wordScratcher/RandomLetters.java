@@ -15,11 +15,17 @@ public class RandomLetters extends HashMap<Character, Boolean>
 	final int N = alphabet.length();
 	
 	private Iterator iterator;
+	private char recent = ' ';
 	
 	public RandomLetters()
 	{
 		populateRandomLetters();
 		iterator = this.entrySet().iterator();
+	}
+	
+	public char getRecent()
+	{
+		return recent;
 	}
 	
 	private void populateRandomLetters()
@@ -45,6 +51,7 @@ public class RandomLetters extends HashMap<Character, Boolean>
 		{
 			Map.Entry<Character, Boolean> entry = (Map.Entry) iterator.next();
 			entry.setValue(true);
+			recent = entry.getKey();
 			return true;
 		}
 		return false;
