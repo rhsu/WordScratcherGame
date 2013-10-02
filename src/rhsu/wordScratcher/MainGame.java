@@ -26,15 +26,10 @@ public class MainGame
 	{
 		RandomLetters test = new RandomLetters();
 		
-		System.out.println(test);
-		
-		test.revealNextLetter();
-		
-		System.out.println(test);
-		
-		test.revealNextLetter();
-		
-		System.out.println(test);
+		while(test.revealNextLetter())
+		{
+			System.out.println(test);
+		}
 	}
 	
 	public static void main(String[] args)

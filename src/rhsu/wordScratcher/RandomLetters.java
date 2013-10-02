@@ -39,13 +39,15 @@ public class RandomLetters extends HashMap<Character, Boolean>
 		}
 	}
 	
-	public void revealNextLetter()
+	public boolean revealNextLetter()
 	{
 		if(iterator.hasNext())
 		{
 			Map.Entry<Character, Boolean> entry = (Map.Entry) iterator.next();
 			entry.setValue(true);
+			return true;
 		}
+		return false;
 	}
 	
 	@Override
