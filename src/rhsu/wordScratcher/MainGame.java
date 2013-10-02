@@ -22,8 +22,23 @@ public class MainGame
 		System.out.println(test.size());
 	}
 	
+	public static void testRandomLetters()
+	{
+		RandomLetters test = new RandomLetters();
+		
+		System.out.println(test);
+		
+		test.revealNextLetter();
+		
+		System.out.println(test);
+		
+		test.revealNextLetter();
+		
+		System.out.println(test);
+	}
+	
 	public static void main(String[] args)
 	{
-		test2();
+		testRandomLetters();
 	}
 }

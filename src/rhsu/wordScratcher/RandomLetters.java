@@ -1,30 +1,28 @@
 package rhsu.wordScratcher;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 
 /**
  *
  * @author rhsu
  */
-public class RandomLetters 
+public class RandomLetters extends HashMap<Character, Boolean>
 {
 	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	final int N = alphabet.length();
 	
-	private HashMap<Character, Boolean> randomCharacters;
+	private Iterator iterator;
 	
 	public RandomLetters()
 	{
-		populateRandomCharacters();
+		populateRandomLetters();
+		iterator = this.entrySet().iterator();
 	}
 	
-	public HashMap<Character, Boolean> getRandomCharacters()
-	{
-		return randomCharacters;
-	}
-		
-	private void populateRandomCharacters()
+	private void populateRandomLetters()
 	{
 		Random r = new Random();
 		
@@ -32,12 +30,38 @@ public class RandomLetters
 		{
 			Character c = alphabet.charAt(r.nextInt(N));
 			
-			while(randomCharacters.containsKey(c))
+			while(this.containsKey(c))
 			{
 				c = alphabet.charAt(r.nextInt(N)); //generate a new key
 			}
 			
-			randomCharacters.put(c, false);
+			this.put(c, false);
 		}
+	}
+	
+	public void revealNextLetter()
+	{
+		if(iterator.hasNext())
+		{
+			Map.Entry<Character, Boolean> entry = (Map.Entry) iterator.next();
+			entry.setValue(true);
+		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for(Map.Entry<Character, Boolean> entry : this.entrySet())
+		{
+			//if visible
+			if(entry.getValue())
+			{
+				builder.append(entry.getKey()).append(" ");
+			}
+		}
+		
+		return "".equals(builder.toString()) ? "There are no visible letters" : builder.toString();
 	}
 }
