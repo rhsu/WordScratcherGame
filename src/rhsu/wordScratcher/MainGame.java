@@ -17,7 +17,7 @@ public class MainGame
 	{
 		Scratcher game = new Scratcher("Crossword1.txt", "Crossword1WordList.txt");
 		
-		LinkedList<Character> test = game.getCrossword().findAll('c');
+		LinkedList<Character> test = game.getCrossword().findAll('$');
 		
 		System.out.println(test.size());
 	}

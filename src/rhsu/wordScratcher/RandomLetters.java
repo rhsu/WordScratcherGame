@@ -1,5 +1,6 @@
 package rhsu.wordScratcher;
 
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -10,15 +11,15 @@ public class RandomLetters
 {
 	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	final int N = alphabet.length();
-
-	private String randomCharacters = "";
+	
+	private HashMap<Character, Boolean> randomCharacters;
 	
 	public RandomLetters()
 	{
 		populateRandomCharacters();
 	}
 	
-	public String getTest()
+	public HashMap<Character, Boolean> getRandomCharacters()
 	{
 		return randomCharacters;
 	}
@@ -31,12 +32,12 @@ public class RandomLetters
 		{
 			Character c = alphabet.charAt(r.nextInt(N));
 			
-			while(randomCharacters.contains(c.toString()))
+			while(randomCharacters.containsKey(c))
 			{
-				c = alphabet.charAt(r.nextInt(N));
+				c = alphabet.charAt(r.nextInt(N)); //generate a new key
 			}
-				
-			randomCharacters += c;
+			
+			randomCharacters.put(c, false);
 		}
 	}
 }
