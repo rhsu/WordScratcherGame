@@ -32,8 +32,14 @@ public class MainGame
 		}
 	}
 	
+	public static void scratcherGame()
+	{
+		TerminalApp app = new TerminalApp();
+		app.playGame();
+	}
+	
 	public static void main(String[] args)
 	{
-		testRandomLetters();
+		scratcherGame();
 	}
 }

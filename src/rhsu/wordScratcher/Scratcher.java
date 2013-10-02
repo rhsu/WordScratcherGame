@@ -13,6 +13,7 @@ public class Scratcher
 {
 	private ScratcherBoard crossword;
 	private LinkedList<String> wordList;
+	private RandomLetters wordBank;
 	
 	public ScratcherBoard getCrossword()
 	{
@@ -24,10 +25,16 @@ public class Scratcher
 		return wordList;
 	}
 	
+	public RandomLetters getWordBank()
+	{
+		return wordBank;
+	}
+	
 	public Scratcher(String crosswordFilename, String wordlistFilename)
 	{
 		crossword = new ScratcherBoard(crosswordFilename);
 		wordList = getWordList(wordlistFilename);
+		wordBank = new RandomLetters();
 	}
 	
 	private LinkedList<String> getWordList(String wordlistFilename)
