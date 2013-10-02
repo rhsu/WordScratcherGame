@@ -1,6 +1,7 @@
 package rhsu.wordScratcher;
 
 import java.util.LinkedList;
+import rhsu.board.BoardPiece;
 
 /**
  *
@@ -17,7 +18,7 @@ public class MainGame
 	{
 		Scratcher game = new Scratcher("Crossword1.txt", "Crossword1WordList.txt");
 		
-		LinkedList<Character> test = game.getCrossword().findAll('$');
+		LinkedList<BoardPiece<Character>> test = game.getCrossword().findAll('$');
 		
 		System.out.println(test.size());
 	}
