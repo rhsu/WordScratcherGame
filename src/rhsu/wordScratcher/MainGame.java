@@ -19,6 +19,6 @@ public class MainGame
 		
 		RandomLetters letters = new RandomLetters();
 		
-		System.out.println(letters.getRandomCharacters());
+		System.out.println(letters.getTest());
 	}
 }

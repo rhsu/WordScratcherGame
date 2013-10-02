@@ -1,6 +1,5 @@
 package rhsu.wordScratcher;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -13,19 +12,18 @@ public class RandomLetters
 	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	final int N = alphabet.length();
 
-	private LinkedList<Character> randomCharacterList;
+	private String randomCharacters = "";
 	
 	public RandomLetters()
 	{
-		randomCharacterList = new LinkedList<>();
 		populateRandomCharacters();
 	}
 	
-	public LinkedList<Character> getRandomCharacters()
+	public String getTest()
 	{
-		return randomCharacterList;
+		return randomCharacters;
 	}
-			
+		
 	private void populateRandomCharacters()
 	{
 		Random r = new Random();
@@ -34,12 +32,12 @@ public class RandomLetters
 		{
 			Character c = alphabet.charAt(r.nextInt(N));
 			
-			while(randomCharacterList.contains(c))
+			while(randomCharacters.contains(c.toString()))
 			{
 				c = alphabet.charAt(r.nextInt(N));
 			}
 				
-			randomCharacterList.add(c);
+			randomCharacters += c;
 		}
 	}
 }
