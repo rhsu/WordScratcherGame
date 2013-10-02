@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public class RandomLetters 
 {
-	//final String alphabet = "AAAAABCDEEEEEFGHIIIIIIJKLMNOOOOOPQRSTUUUUUVWXYZ";
 	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	final int N = alphabet.length();
 

@@ -13,6 +13,19 @@ public class ScratcherBoard extends CharBoard
 		super(filename);
 	}
 	
+	public boolean contains(Character c)
+	{
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(this.getValueAt(i, j).equals(c)) return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public String toString()
 	{
