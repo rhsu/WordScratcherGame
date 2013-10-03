@@ -1,5 +1,6 @@
-package rhsu.wordScratcher;
+package rhsu.wordScratcher.gui;
 
+import rhsu.wordScratcher.gameObjects.Scratcher;
 import java.util.LinkedList;
 import java.util.Scanner;
 import rhsu.board.BoardPiece;
