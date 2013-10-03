@@ -1,4 +1,4 @@
-package rhsu.wordScratcher;
+package rhsu.wordScratcher.gameObjects;
 
 import java.util.HashMap;
 import java.util.Iterator;

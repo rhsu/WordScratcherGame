@@ -1,4 +1,4 @@
-package rhsu.wordScratcher;
+package rhsu.wordScratcher.gameObjects;
 
 import java.util.LinkedList;
 import rhsu.board.BoardPiece;
@@ -10,7 +10,7 @@ import rhsu.board.implementations.CharBoard;
  */
 public class ScratcherBoard extends CharBoard
 {
-	ScratcherBoard(String filename)
+	public ScratcherBoard(String filename)
 	{
 		super(filename);
 	}

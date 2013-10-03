@@ -1,13 +1,17 @@
-package rhsu.wordScratcher;
+package rhsu.wordScratcher.test;
 
+import rhsu.wordScratcher.gameObjects.ScratcherBoard;
+import rhsu.wordScratcher.gameObjects.RandomLetters;
+import rhsu.wordScratcher.gameObjects.Scratcher;
 import java.util.LinkedList;
 import rhsu.board.BoardPiece;
+import rhsu.wordScratcher.gui.TerminalApp;
 
 /**
  *
  * @author rhsu
  */
-public class MainGame 
+public class Main 
 {
 	public static void test()
 	{		
