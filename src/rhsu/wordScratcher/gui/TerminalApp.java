@@ -63,6 +63,7 @@ public class TerminalApp
 		}
 		
 		endGamePrompt();
+		print("Game Over");
 	}
 		
 	private void uncoverLetterPrompt()
@@ -110,6 +111,8 @@ public class TerminalApp
 		String[] uncoveredWordsHorizontal;
 		String[] uncoveredWordsVertical;
 		
+		int numMatches = 0;
+		
 		uncoveredWordsHorizontal = scratcher.getCrossword().getHorizontalWords();
 		uncoveredWordsVertical = scratcher.getCrossword().getVeritcalWords();
 		
@@ -118,6 +121,7 @@ public class TerminalApp
 			if(Arrays.asList(uncoveredWordsHorizontal).contains(word))
 			{
 				print("Match!: " + word);
+				numMatches++;
 			}
 		}
 		
@@ -126,9 +130,37 @@ public class TerminalApp
 			if(Arrays.asList(uncoveredWordsVertical).contains(word))
 			{
 				print("Match!: " + word);
+				numMatches++;
 			}
 		}
 		
-		print("Game Over");
+		print(determineScorePrompt(numMatches));
+	}
+	
+	private int determineScorePrompt(int score)
+	{	
+		switch(score)
+		{
+			case 3: 
+				return 3;
+			case 4: 
+				return 6;
+			case 5: 
+				return 18;
+			case 6: 
+				return 20;
+			case 7: 
+				return 50;
+			case 8: 
+				return 100;
+			case 9: 
+				return 500;
+			case 10: 
+				return 5000;
+			case 11: 
+				return 50000;
+		}
+		
+		return 0;
 	}
 }
