@@ -33,11 +33,11 @@ public class Scratcher
 	public Scratcher(String crosswordFilename, String wordlistFilename)
 	{
 		crossword = new ScratcherBoard(crosswordFilename);
-		wordList = getWordList(wordlistFilename);
+		wordList = populateWordList(wordlistFilename);
 		wordBank = new RandomLetters();
 	}
 	
-	private LinkedList<String> getWordList(String wordlistFilename)
+	private LinkedList<String> populateWordList(String wordlistFilename)
 	{
 		LinkedList<String> listOfWords = new LinkedList<>();
 		
