@@ -13,13 +13,21 @@ public class TerminalApp
 {
 	private Scratcher scratcher;
 	private Scanner scanner;
+	private boolean debugMode;
+	
+	public TerminalApp(boolean debugMode)
+	{
+		this();
+		this.debugMode = debugMode;
+	}
 	
 	public TerminalApp()
 	{
-		scratcher = new Scratcher("Crossword1.txt", 
+		this.scratcher = new Scratcher("Crossword1.txt", 
 				"Crossword1WordListHorizontal.txt", 
 				"Crossword1WordListVertical.txt");
-		scanner = new Scanner(System.in);
+		this.scanner = new Scanner(System.in);
+		this.debugMode = false;
 	}
 	
 	private static void printBreaks()
@@ -54,12 +62,12 @@ public class TerminalApp
 		
 		endGamePrompt();
 	}
-	
+		
 	private void uncoverLetterPrompt()
 	{
 		print("Press enter to uncover a letter");
 		
-		scanner.nextLine();
+		if(!debugMode) scanner.nextLine();
 		
 		print("Printing the word bank");
 		printBreaks();

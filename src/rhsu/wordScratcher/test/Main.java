@@ -13,7 +13,7 @@ public class Main
 {
 	public static void scratcherGame()
 	{
-		TerminalApp app = new TerminalApp();
+		TerminalApp app = new TerminalApp(true);
 		app.playGame();
 	}
 	
