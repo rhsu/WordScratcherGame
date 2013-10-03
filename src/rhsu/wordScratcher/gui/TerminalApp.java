@@ -51,6 +51,8 @@ public class TerminalApp
 		{
 			uncoverLetterPrompt();
 		}
+		
+		endGamePrompt();
 	}
 	
 	private void uncoverLetterPrompt()
@@ -91,5 +93,10 @@ public class TerminalApp
 		}
 		
 		print(scratcher.getCrossword());
+	}
+	
+	private void endGamePrompt()
+	{
+		print("Game Over");
 	}
 }
