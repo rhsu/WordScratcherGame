@@ -12,17 +12,16 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
 public class Scratcher
 {
 	private ScratcherBoard crossword;
-	private LinkedList<String> wordList;
+	private WordList wordList;
 	private RandomLetters wordBank;
 	
-	public ScratcherBoard getCrossword()
+	public Scratcher(String crosswordFilename, 
+			String wordListHorizontal, 
+			String wordListVertical)
 	{
-		return crossword;
-	}
-	
-	public LinkedList<String> getWordList()
-	{
-		return wordList;
+		crossword = new ScratcherBoard(crosswordFilename);
+		wordList = new WordList(wordListHorizontal, wordListVertical);
+		wordBank = new RandomLetters();
 	}
 	
 	public RandomLetters getWordBank()
@@ -30,30 +29,13 @@ public class Scratcher
 		return wordBank;
 	}
 	
-	public Scratcher(String crosswordFilename, String wordlistFilename)
+	public ScratcherBoard getCrossword()
 	{
-		crossword = new ScratcherBoard(crosswordFilename);
-		wordList = populateWordList(wordlistFilename);
-		wordBank = new RandomLetters();
+		return crossword;
 	}
 	
-	private LinkedList<String> populateWordList(String wordlistFilename)
+	public WordList getWordList()
 	{
-		LinkedList<String> listOfWords = new LinkedList<>();
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(wordlistFilename)))
-		{
-			String line;
-			while ((line = br.readLine()) != null)
-			{
-				listOfWords.add(line);
-			}
-		}
-		catch(Exception ex)
-		{
-			ExceptionHandler.Handle(ex);
-		}
-		
-		return listOfWords;
+		return wordList;
 	}
 }
