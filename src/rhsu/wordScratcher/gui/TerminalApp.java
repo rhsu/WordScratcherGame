@@ -1,5 +1,6 @@
 package rhsu.wordScratcher.gui;
 
+import java.util.Arrays;
 import rhsu.wordScratcher.gameObjects.Scratcher;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -23,7 +24,8 @@ public class TerminalApp
 	
 	public TerminalApp()
 	{
-		this.scratcher = new Scratcher("Crossword1.txt", 
+		this.scratcher = new Scratcher(
+				"Crossword1.txt", 
 				"Crossword1WordListHorizontal.txt", 
 				"Crossword1WordListVertical.txt");
 		this.scanner = new Scanner(System.in);
@@ -105,9 +107,27 @@ public class TerminalApp
 	
 	private void endGamePrompt()
 	{
-		LinkedList<String> uncoveredWordsHorizontal;
+		String[] uncoveredWordsHorizontal;
+		String[] uncoveredWordsVertical;
 		
-		LinkedList<String> uncoveredWordsVertical;
+		uncoveredWordsHorizontal = scratcher.getCrossword().getHorizontalWords();
+		uncoveredWordsVertical = scratcher.getCrossword().getVeritcalWords();
+		
+		for(String word : scratcher.getWordList().getHorizontalWords())
+		{
+			if(Arrays.asList(uncoveredWordsHorizontal).contains(word))
+			{
+				print("Match!: " + word);
+			}
+		}
+		
+		for(String word : scratcher.getWordList().getVeritcalWords())
+		{
+			if(Arrays.asList(uncoveredWordsVertical).contains(word))
+			{
+				print("Match!: " + word);
+			}
+		}
 		
 		print("Game Over");
 	}

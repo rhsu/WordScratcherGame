@@ -1,5 +1,6 @@
 package rhsu.wordScratcher.gameObjects;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import rhsu.board.BoardPiece;
 import rhsu.board.implementations.CharBoard;
@@ -67,29 +68,51 @@ public class ScratcherBoard extends CharBoard
 		return builder.toString();
 	}
 	
-	void test()
+	public String[] getHorizontalWords()
 	{
-		StringBuilder testBuilder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
 		
-		for(int i = 0; i < this.horizontal_size; i++)
+		for(int x = 0; x < this.horizontal_size; x++)
 		{	
-			for(int j = 0; j < this.vertical_size; j++)
+			for(int y = 0; y < this.vertical_size; y++)
 			{
-				testBuilder.append(this.getValueAt(j, i));
+				builder.append(this.getValueAt(x, y));
 			}
 			
-			testBuilder.append("$");
+			builder.append("$");
 		}
 		
-		System.out.println(testBuilder.toString());
+		return builder.toString().split("\\$");
 	}
 	
+	public String[] getVeritcalWords()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for(int x = 0; x < this.horizontal_size; x++)
+		{	
+			for(int y = 0; y < this.vertical_size; y++)
+			{
+				builder.append(this.getValueAt(y, x));
+			}
+			
+			builder.append("$");
+		}
+		
+		return builder.toString().split("\\$");
+	}
 	
 	public static void main(String[] args)
 	{
 		ScratcherBoard test = new ScratcherBoard("Crossword1.txt");
-		test.test();
 		
-		System.out.println(test);
+		/*for(String word : test.horizontalWords())
+		{
+			System.out.println(word);
+		}*/
+		
+		boolean x = Arrays.asList(test.getHorizontalWords()).contains("diva");
+		
+		System.out.println(x);
 	}
 }
