@@ -33,7 +33,9 @@ public class TerminalApp
 	
 	public TerminalApp()
 	{
-		scratcher = new Scratcher("Crossword1.txt", "Crossword1WordList.txt");
+		scratcher = new Scratcher("Crossword1.txt", 
+				"Crossword1WordListHorizontal.txt", 
+				"Crossword1WordListVeritcal.txt");
 		scanner = new Scanner(System.in);
 	}
 	
