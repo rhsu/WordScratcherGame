@@ -66,4 +66,30 @@ public class ScratcherBoard extends CharBoard
 		
 		return builder.toString();
 	}
+	
+	void test()
+	{
+		StringBuilder testBuilder = new StringBuilder();
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{	
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				testBuilder.append(this.getValueAt(j, i));
+			}
+			
+			testBuilder.append("$");
+		}
+		
+		System.out.println(testBuilder.toString());
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		ScratcherBoard test = new ScratcherBoard("Crossword1.txt");
+		test.test();
+		
+		System.out.println(test);
+	}
 }

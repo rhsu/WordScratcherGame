@@ -105,6 +105,10 @@ public class TerminalApp
 	
 	private void endGamePrompt()
 	{
+		LinkedList<String> uncoveredWordsHorizontal;
+		
+		LinkedList<String> uncoveredWordsVertical;
+		
 		print("Game Over");
 	}
 }
