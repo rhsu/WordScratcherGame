@@ -14,6 +14,14 @@ public class TerminalApp
 	private Scratcher scratcher;
 	private Scanner scanner;
 	
+	public TerminalApp()
+	{
+		scratcher = new Scratcher("Crossword1.txt", 
+				"Crossword1WordListHorizontal.txt", 
+				"Crossword1WordListVertical.txt");
+		scanner = new Scanner(System.in);
+	}
+	
 	private static void printBreaks()
 	{
 		print("...");
@@ -30,15 +38,7 @@ public class TerminalApp
 	{
 		System.out.println();
 	}
-	
-	public TerminalApp()
-	{
-		scratcher = new Scratcher("Crossword1.txt", 
-				"Crossword1WordListHorizontal.txt", 
-				"Crossword1WordListVeritcal.txt");
-		scanner = new Scanner(System.in);
-	}
-	
+		
 	public void playGame()
 	{
 		print("Scracther game.");
