@@ -11,8 +11,8 @@ import java.util.Random;
  */
 public class RandomLetters extends HashMap<Character, Boolean>
 {
-	final String alphabet = "abcdefghijklmnopqrstuvwxyz";
-	final int N = alphabet.length();
+	final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+	final int N = ALPHABET.length();
 	
 	private Iterator iterator;
 	private char recent = ' ';
@@ -29,22 +29,30 @@ public class RandomLetters extends HashMap<Character, Boolean>
 	}
 	
 	private void populateRandomLetters()
-	{
-		Random r = new Random();
+	{	
+		Random random = new Random();
 		
 		for (int i = 0; i < 18; i++) 
 		{
-			Character c = alphabet.charAt(r.nextInt(N));
+			Character c = ALPHABET.charAt(random.nextInt(N));
 			
+			//while this character already exists, populate a new key.
 			while(this.containsKey(c))
 			{
-				c = alphabet.charAt(r.nextInt(N)); //generate a new key
+				//generate a new key
+				c = ALPHABET.charAt(random.nextInt(N)); 
 			}
 			
+			//add the character to the structure and set its visibility to false
 			this.put(c, false);
 		}
 	}
 	
+	/**
+	 * Iterates through the structure. If there is a next letter, then sets
+	 * that letter's visibility to true.
+	 * @return True if there exists a next element
+	 */
 	public boolean revealNextLetter()
 	{
 		if(iterator.hasNext())
@@ -67,10 +75,12 @@ public class RandomLetters extends HashMap<Character, Boolean>
 			//if visible
 			if(entry.getValue())
 			{
-				builder.append(entry.getKey()).append(" ");
+				builder.append(String.format("%s ", entry.getKey()));
 			}
 		}
 		
-		return "".equals(builder.toString()) ? "There are no visible letters" : builder.toString();
+		return "".equals(builder.toString())  
+				? "There are no visible letters" 
+				: builder.toString();
 	}
 }
