@@ -1,10 +1,5 @@
 package rhsu.wordScratcher.gameObjects;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.LinkedList;
-import rhsu.board.exceptionHandler.ExceptionHandler;
-
 /**
  *
  * @author rhsu
