@@ -101,18 +101,4 @@ public class ScratcherBoard extends CharBoard
 		
 		return builder.toString().split("\\$");
 	}
-	
-	public static void main(String[] args)
-	{
-		ScratcherBoard test = new ScratcherBoard("Crossword1.txt");
-		
-		/*for(String word : test.horizontalWords())
-		{
-			System.out.println(word);
-		}*/
-		
-		boolean x = Arrays.asList(test.getHorizontalWords()).contains("diva");
-		
-		System.out.println(x);
-	}
 }
