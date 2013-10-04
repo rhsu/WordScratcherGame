@@ -17,19 +17,41 @@ public class TerminalApp
 	private boolean debugMode;
 	
 	public TerminalApp(boolean debugMode)
-	{
-		this();
+	{	
+		this.scratcher = new Scratcher(
+			"Crossword1.txt", 
+			"Crossword1WordListHorizontal.txt", 
+			"Crossword1WordListVertical.txt");
+		this.scanner = new Scanner(System.in);
 		this.debugMode = debugMode;
+		//gamePrompt();
 	}
 	
 	public TerminalApp()
 	{
-		this.scratcher = new Scratcher(
-				"Crossword1.txt", 
-				"Crossword1WordListHorizontal.txt", 
-				"Crossword1WordListVertical.txt");
-		this.scanner = new Scanner(System.in);
-		this.debugMode = false;
+		this(false);
+	}
+	
+	public void playGame()
+	{
+		boolean proceed;
+		do
+		{
+			gamePrompt();
+			
+			print("Game Over. Do you want to play again");
+			String proceedString = scanner.nextLine();
+			switch(proceedString)
+			{
+				case "y":
+				case "yes":
+					proceed = true;
+					break;
+				default:
+					proceed = false;
+					break;
+			}
+		}while(proceed);
 	}
 	
 	private static void printBreaks()
@@ -49,9 +71,8 @@ public class TerminalApp
 		System.out.println();
 	}
 		
-	public void playGame()
+	private void gamePrompt()
 	{
-		print("Scracther game.");
 		print(scratcher.getCrossword());
 		print(scratcher.getWordList());
 		println();
