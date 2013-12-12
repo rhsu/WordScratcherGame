@@ -5,12 +5,13 @@ import rhsu.wordScratcher.gameObjects.Scratcher;
 import java.util.List;
 import java.util.Scanner;
 import rhsu.board.BoardPiece;
+import static rhsu.wordScratcher.UtilityFunctions;
 
 /**
  *
  * @author rhsu
  */
-public class TerminalApp 
+public class TerminalApp
 {
 	private Scratcher scratcher;
 	private Scanner scanner;
@@ -30,23 +31,6 @@ public class TerminalApp
 				"Crossword1WordListVertical.txt");
 		this.scanner = new Scanner(System.in);
 		this.debugMode = false;
-	}
-	
-	private static void printBreaks()
-	{
-		print("...");
-		print("...");
-		print("...");
-	}
-	
-	private static void print(Object o)
-	{
-		System.out.println(o);
-	}
-	
-	private static void println()
-	{
-		System.out.println();
 	}
 		
 	public void playGame()
