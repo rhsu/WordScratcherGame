@@ -2,7 +2,6 @@ package rhsu.wordScratcher.gui;
 
 import java.util.Arrays;
 import rhsu.wordScratcher.gameObjects.Scratcher;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import rhsu.board.BoardPiece;
