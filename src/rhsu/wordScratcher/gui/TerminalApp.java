@@ -1,7 +1,7 @@
 package rhsu.wordScratcher.gui;
 
 import java.util.Arrays;
-import rhsu.wordScratcher.gameObjects.Scratcher;
+import rhsu.wordScratcher.gameObjects.implementations.ScratcherImpl;
 import java.util.List;
 import java.util.Scanner;
 import rhsu.board.BoardPiece;
@@ -12,7 +12,7 @@ import rhsu.board.BoardPiece;
  */
 public class TerminalApp 
 {
-	private Scratcher scratcher;
+	private ScratcherImpl scratcher;
 	private Scanner scanner;
 	private boolean debugMode;
 	
@@ -24,7 +24,7 @@ public class TerminalApp
 	
 	public TerminalApp()
 	{
-		this.scratcher = new Scratcher(
+		this.scratcher = new ScratcherImpl(
 				"Crossword1.txt", 
 				"Crossword1WordListHorizontal.txt", 
 				"Crossword1WordListVertical.txt");
@@ -115,7 +115,7 @@ public class TerminalApp
 		int numMatches = 0;
 		
 		uncoveredWordsHorizontal = scratcher.getCrossword().getHorizontalWords();
-		uncoveredWordsVertical = scratcher.getCrossword().getVeritcalWords();
+		uncoveredWordsVertical = scratcher.getCrossword().getVerticalWords();
 		
 		for(String word : scratcher.getWordList().getHorizontalWords())
 		{
