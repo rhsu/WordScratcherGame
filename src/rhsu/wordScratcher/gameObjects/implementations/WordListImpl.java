@@ -1,15 +1,16 @@
-package rhsu.wordScratcher.gameObjects;
+package rhsu.wordScratcher.gameObjects.implementations;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.wordScratcher.gameObjects.WordList;
 
 /**
  *
  * @author rhsu
  */
-public class WordListImpl 
+public class WordListImpl implements WordList
 {
 	private LinkedList<String> HorizontalWords;
 	private LinkedList<String> VerticalWords;
@@ -20,11 +21,13 @@ public class WordListImpl
 		VerticalWords = populateWords(verticalFile);
 	}
 	
+	@Override
 	public LinkedList<String> getHorizontalWords()
 	{
 		return HorizontalWords;
 	}
 	
+	@Override
 	public LinkedList<String> getVeritcalWords()
 	{
 		return VerticalWords;

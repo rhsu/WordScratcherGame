@@ -1,15 +1,14 @@
-package rhsu.wordScratcher.gameObjects;
+package rhsu.wordScratcher.gameObjects.implementations;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import rhsu.wordScratcher.gameObjects.RandomLetters;
 
-/**
- *
- * @author rhsu
- */
-public class RandomLettersImpl extends HashMap<Character, Boolean>
+public class RandomLettersImpl 
+	extends HashMap<Character, Boolean>
+	implements RandomLetters
 {
 	final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 	final int N = ALPHABET.length();
@@ -23,6 +22,7 @@ public class RandomLettersImpl extends HashMap<Character, Boolean>
 		iterator = this.entrySet().iterator();
 	}
 	
+	@Override
 	public char getRecent()
 	{
 		return recent;
@@ -53,6 +53,7 @@ public class RandomLettersImpl extends HashMap<Character, Boolean>
 	 * that letter's visibility to true.
 	 * @return True if there exists a next element
 	 */
+	@Override
 	public boolean revealNextLetter()
 	{
 		if(iterator.hasNext())

@@ -1,14 +1,15 @@
-package rhsu.wordScratcher.gameObjects;
+package rhsu.wordScratcher.gameObjects.implementations;
 
-import java.util.LinkedList;
-import rhsu.board.BoardPiece;
 import rhsu.board.implementations.CharBoard;
+import rhsu.wordScratcher.gameObjects.ScratcherBoard;
 
 /**
  *
  * @author rhsu
  */
-public class ScratcherBoardImpl extends CharBoard
+public class ScratcherBoardImpl
+	extends CharBoard
+	implements ScratcherBoard<Character>
 {
 	public ScratcherBoardImpl(String filename)
 	{
@@ -39,6 +40,7 @@ public class ScratcherBoardImpl extends CharBoard
 		return builder.toString();
 	}
 	
+	@Override
 	public String[] getHorizontalWords()
 	{
 		StringBuilder builder = new StringBuilder();
@@ -56,7 +58,8 @@ public class ScratcherBoardImpl extends CharBoard
 		return builder.toString().split("\\$");
 	}
 	
-	public String[] getVeritcalWords()
+	@Override
+	public String[] getVerticalWords()
 	{
 		StringBuilder builder = new StringBuilder();
 		
