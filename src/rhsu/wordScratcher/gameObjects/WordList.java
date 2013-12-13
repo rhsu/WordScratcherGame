@@ -49,4 +49,22 @@ public class WordList
 		
 		return result;
 	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		
+		for(String word : HorizontalWords)
+		{
+			stringBuilder.append(word).append("\n");
+		}
+		
+		for(String word : VerticalWords)
+		{
+			stringBuilder.append(word).append("\n");
+		}
+		
+		return stringBuilder.toString();
+	}
 }

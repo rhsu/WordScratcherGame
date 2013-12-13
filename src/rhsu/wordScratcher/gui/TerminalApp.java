@@ -51,7 +51,8 @@ public class TerminalApp
 		
 	public void playGame()
 	{
-		print("Scracther game.");
+		print("Welcome to Scracther game.");
+		println();
 		print(scratcher.getCrossword());
 		print(scratcher.getWordList());
 		println();
