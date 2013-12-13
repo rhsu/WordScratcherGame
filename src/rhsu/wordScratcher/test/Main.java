@@ -1,9 +1,6 @@
 package rhsu.wordScratcher.test;
 
-import rhsu.wordScratcher.gameObjects.*;
 import rhsu.wordScratcher.gui.*;
-import java.util.LinkedList;
-import rhsu.board.*;
 
 /**
  *
