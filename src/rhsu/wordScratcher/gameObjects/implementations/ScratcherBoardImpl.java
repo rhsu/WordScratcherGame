@@ -1,5 +1,6 @@
 package rhsu.wordScratcher.gameObjects.implementations;
 
+import java.io.BufferedReader;
 import rhsu.board.implementations.CharBoard;
 import rhsu.wordScratcher.gameObjects.ScratcherBoard;
 
@@ -14,6 +15,11 @@ public class ScratcherBoardImpl
 	public ScratcherBoardImpl(String filename)
 	{
 		super(filename);
+	}
+	
+	public ScratcherBoardImpl(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
 	}
 	
 	@Override
