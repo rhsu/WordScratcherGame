@@ -13,7 +13,7 @@ public class RandomLettersImpl
 	final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 	final int N = ALPHABET.length();
 	
-	private Iterator iterator;
+	private Iterator<Map.Entry<Character, Boolean>> iterator;
 	private char recent = ' ';
 	
 	public RandomLettersImpl()
