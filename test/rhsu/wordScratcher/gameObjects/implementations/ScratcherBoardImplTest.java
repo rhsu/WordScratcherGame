@@ -5,8 +5,9 @@
 
 package rhsu.wordScratcher.gameObjects.implementations;
 
-import org.junit.Test;
+import org.junit.*;
 import static org.junit.Assert.*;
+import rhsu.board.resources.ResourceRetriever;
 
 /**
  *
@@ -14,24 +15,48 @@ import static org.junit.Assert.*;
  */
 public class ScratcherBoardImplTest 
 {
-
-    public ScratcherBoardImplTest() 
+	ScratcherBoardImpl test;
+    
+	public ScratcherBoardImplTest() 
 	{
+		test = new ScratcherBoardImpl(ResourceRetriever.GetResource
+		(
+			"testScratcherBoardImpl", "/rhsu/wordScratcher/test/resources/")
+		);
     }
 
-	@Test
+	
+	@Ignore
 	public void testToString() 
 	{
+		fail("not done yet");
 	}
 
 	@Test
 	public void testGetHorizontalWords() 
-	{
+	{	
+		String[] expectedResult = { "abc", "de", "f", "g" };
+		
+		//assertArrayEquals(expectedResult, test.getHorizontalWords());
+		
+		for(String word : test.getHorizontalWords())
+		{
+			System.out.println(word);
+		}
+		
+		System.out.println("done");
 	}
 
 	@Test
 	public void testGetVerticalWords() 
 	{
+		String[] expectedResult = { "a", "f", "bd", "ceg" };
+		//assertArrayEquals(expectedResult, test.getVerticalWords());
+		
+		for(String word : test.getVerticalWords())
+		{
+			System.out.println(word);
+		}
 	}
 
 }

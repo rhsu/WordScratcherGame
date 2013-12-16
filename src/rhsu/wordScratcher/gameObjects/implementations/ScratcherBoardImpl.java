@@ -55,9 +55,14 @@ public class ScratcherBoardImpl
 		{	
 			for(int y = 0; y < this.vertical_size; y++)
 			{
+				if(" ".equals(this.getValueAt(x, y).toString()))
+				{
+					System.out.println("????");
+				}
 				builder.append(this.getValueAt(x, y));
 			}
 			
+			//appending an extra delimiter to denote a new line.
 			builder.append("$");
 		}
 		
@@ -76,6 +81,7 @@ public class ScratcherBoardImpl
 				builder.append(this.getValueAt(y, x));
 			}
 			
+			//appending an extra delimiter to denote a new line.
 			builder.append("$");
 		}
 		
