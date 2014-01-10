@@ -144,8 +144,8 @@ public class TerminalApp
 				return 5000;
 			case 11: 
 				return 50000;
+			default:
+				return 0;
 		}
-		
-		return 0;
 	}
 }
