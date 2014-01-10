@@ -1,7 +1,7 @@
 package rhsu.wordScratcher.gui;
 
 import java.util.Arrays;
-import rhsu.wordScratcher.gameObjects.Scratcher;
+import rhsu.wordScratcher.gameObjects.implementations.ScratcherImpl;
 import java.util.List;
 import java.util.Scanner;
 import rhsu.board.BoardPiece;
@@ -12,13 +12,13 @@ import rhsu.board.BoardPiece;
  */
 public class TerminalApp 
 {
-	private Scratcher scratcher;
+	private ScratcherImpl scratcher;
 	private Scanner scanner;
 	private boolean debugMode;
 	
 	public TerminalApp(boolean debugMode)
 	{	
-		this.scratcher = new Scratcher(
+		this.scratcher = new ScratcherImpl(
 			"Crossword1.txt", 
 			"Crossword1WordListHorizontal.txt", 
 			"Crossword1WordListVertical.txt");
@@ -52,6 +52,14 @@ public class TerminalApp
 					break;
 			}
 		}while(proceed);
+
+		this.scratcher = new ScratcherImpl(
+				"Crossword1.txt", 
+				"Crossword1WordListHorizontal.txt", 
+				"Crossword1WordListVertical.txt");
+		this.scanner = new Scanner(System.in);
+		this.debugMode = false;
+
 	}
 	
 	private static void printBreaks()
@@ -73,6 +81,9 @@ public class TerminalApp
 		
 	private void gamePrompt()
 	{
+		print("Welcome to Scracther game.");
+		println();
+		
 		print(scratcher.getCrossword());
 		print(scratcher.getWordList());
 		println();
@@ -135,7 +146,7 @@ public class TerminalApp
 		int numMatches = 0;
 		
 		uncoveredWordsHorizontal = scratcher.getCrossword().getHorizontalWords();
-		uncoveredWordsVertical = scratcher.getCrossword().getVeritcalWords();
+		uncoveredWordsVertical = scratcher.getCrossword().getVerticalWords();
 		
 		for(String word : scratcher.getWordList().getHorizontalWords())
 		{
@@ -180,8 +191,8 @@ public class TerminalApp
 				return 5000;
 			case 11: 
 				return 50000;
+			default:
+				return 0;
 		}
-		
-		return 0;
 	}
 }
